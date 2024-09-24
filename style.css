@@ -85,7 +85,7 @@ section.home{
 	position: absolute;
 	width: 100%;
 	/* max-width: 1400px; */
-	height: 35vh;	
+	height: 30vh;	
 	max-height: 80px;
 	background-color: var(--primary-clr);
 	padding: 0px 8%;
