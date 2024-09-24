@@ -70,7 +70,7 @@ body{
 }
 .website-container{
 	width: 100%;
-	max-width: 1400px;
+	/* max-width: 1600px; */
 	min-height: 100vh;
 	margin: 0px auto;
 }
@@ -84,8 +84,8 @@ section.home{
 .home .main-navbar{
 	position: absolute;
 	width: 100%;
-	max-width: 1400px;
-	height: 12vh;
+	/* max-width: 1400px; */
+	height: 35vh;	
 	max-height: 80px;
 	background-color: var(--primary-clr);
 	padding: 0px 8%;
