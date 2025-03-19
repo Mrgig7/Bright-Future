@@ -243,4 +243,49 @@ $(document).ready(function(){
     
     // Add pulsing animation to the logo
     $('.main-navbar .logo img').addClass('pulse');
+});
+
+// Scroll to top functionality
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+// Function to toggle button visibility
+function toggleScrollToTopBtn() {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('active');
+    } else {
+        scrollToTopBtn.classList.remove('active');
+    }
+}
+
+// Function to scroll to top
+function scrollToTop() {
+    // Add clicked class for animation
+    scrollToTopBtn.classList.add('clicked');
+    
+    // Remove the class after animation completes
+    setTimeout(() => {
+        scrollToTopBtn.classList.remove('clicked');
+    }, 800);
+    
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Add event listeners
+if (scrollToTopBtn) {
+    window.addEventListener('scroll', toggleScrollToTopBtn);
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+}
+
+// Execute on page load to set initial state
+window.addEventListener('load', toggleScrollToTopBtn);
+
+// Add keyboard shortcut for scrolling to top (Home key)
+document.addEventListener('keydown', function(e) {
+    // Check if Home key is pressed (key code 36)
+    if (e.key === 'Home') {
+        scrollToTop();
+    }
 }); 

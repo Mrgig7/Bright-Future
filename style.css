@@ -1381,3 +1381,80 @@ section.footer{
 	transform: rotate(15deg);
 	color: var(--primary-clr);
 }
+
+/* Scroll to top button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-clr);
+    color: var(--light-heading-clr);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-clr);
+    z-index: 999;
+}
+
+.scroll-to-top.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background-color: var(--primary-medium-clr);
+    transform: translateY(-5px);
+}
+
+.scroll-to-top i {
+    font-size: 20px;
+}
+
+/* Dark mode specific style */
+html.dark-mode .scroll-to-top {
+    background-color: var(--primary-clr);
+    color: var(--dark-heading-clr);
+}
+
+/* Responsive styles for scroll to top button */
+@media(max-width: 768px) {
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .scroll-to-top i {
+        font-size: 16px;
+    }
+}
+
+/* Add a pulse animation for the scroll-to-top button */
+@keyframes buttonPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-clr-rgb), 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(var(--primary-clr-rgb), 0);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-clr-rgb), 0);
+        transform: scale(1);
+    }
+}
+
+.scroll-to-top.clicked {
+    animation: buttonPulse 0.8s ease-out;
+}
